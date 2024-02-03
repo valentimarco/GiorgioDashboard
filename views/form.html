@@ -1,0 +1,36 @@
+{{ block "form" . }}
+    <form id="form-1" hx-post="/form" hx-swap="outerHTML">
+        <input 
+        {{ if .Values.name}} value="{{ .Values.name }}" {{ end }}
+         type="text" name="name" placeholder="Name">
+        <input
+         type="password" name="password" placeholder="Password">
+
+         {{ if .Errors.name }}
+            <div style="color: red;">{{ .Errors.name }}</div>
+         {{ end }}
+
+         
+        <button type="submit">Submit</button>
+    </form>
+{{ end }}
+
+{{ block "formResult" .data }}
+<div id="form" style="display: flex; flex-direction: column;">
+    {{ range .User }}
+        {{ template "users" . }}
+    {{ end }}
+</div>
+{{ end }}
+
+
+{{ block "users"  .}}
+    <span>Name: {{ .Name }} </span>
+    <span>Password: {{ .Password }} </span>
+{{ end }}
+
+{{ block "oob-users" .}}
+    <div id="form" hx-select-oob="afterbegin">
+        {{ template "users" . }}
+    </div>
+{{ end }}
