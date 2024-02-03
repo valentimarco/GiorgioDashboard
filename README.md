@@ -1,6 +1,6 @@
 # Website 
 
-Website wrote in rust and htmx to do several things:
+Website wrote in go and htmx to do several things:
 
 1. Administration of the server
 2. Docker container managment
