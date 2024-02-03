@@ -8,12 +8,14 @@ Website wrote in go and htmx to do several things:
 
 # TODO
 
-- [] Dockerfile and compose
-- [] HTTPS (with testing certs)
-- [] Mongodb connection
+- [ ] Dockerfile and compose
+- [ ] HTTPS (maybe??)
+- [ ] Mongodb connection
 - Backend stuff
-  - [] JWT Auth
-  - [] Login,Registration and logout endpoints
+  - [ ] JWT Auth
+  - [ ] Login,Registration and logout endpoints
+  - [ ] Docker connection and orchestration
+  - [ ] RCON connection
 
 - Frontend stuff
 
