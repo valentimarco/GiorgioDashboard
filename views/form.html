@@ -30,7 +30,7 @@
 {{ end }}
 
 {{ block "oob-users" .}}
-    <div id="form" hx-select-oob="afterbegin">
+    <div id="form" hx-swap-oob="afterbegin">
         {{ template "users" . }}
     </div>
 {{ end }}
