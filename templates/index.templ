@@ -1,0 +1,22 @@
+package templates
+
+import "website/templates/components"
+
+templ Index() {
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Website</title>
+			<link href="/css/output.css" rel="stylesheet"/>
+			<script src="/static/htmxlib/htmx.min.js" type="text/javascript"></script>
+			<script src="/static/htmxlib/ext/multi-swap.js"></script>
+		</head>
+		<body>
+			<div id="count">
+				@components.Count(0)
+			</div>
+			<button hx-target="#count" hx-post="/count">Increment</button>
+		</body>
+	</html>
+}

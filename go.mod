@@ -5,7 +5,9 @@ go 1.21.6
 require github.com/labstack/echo/v4 v4.11.4
 
 require (
+	github.com/a-h/templ v0.2.543
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/labstack/gommon v0.4.2 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
