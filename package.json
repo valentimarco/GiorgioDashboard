@@ -7,5 +7,9 @@
   },
   "dependencies": {
     "htmx.org": "^1.9.10"
+  },
+  "scripts": {
+    "build": "tailwindcss build -o ./css/output.css -i ./css/input.css",
+    "watch": "tailwindcss build -o ./css/output.css -i ./css/input.css --watch"
   }
 }

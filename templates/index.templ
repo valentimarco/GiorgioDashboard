@@ -1,9 +1,10 @@
 package templates
 
-import "website/templates/components"
+import "website/templates/components/index"
 
 templ Index() {
-	<html lang="en">
+	<!DOCTYPE html>
+	<html data-theme="sunset" lang="en">
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,10 +14,13 @@ templ Index() {
 			<script src="/static/htmxlib/ext/multi-swap.js"></script>
 		</head>
 		<body>
-			<div id="count">
-				@components.Count(0)
+			<!-- left menu -->
+			<div class="w-64 min-h-screen bg-gray-800 text-white p-6">
+				<h1 class="text-2xl mb-6">Giorgio Dashboard</h1>
+				<div class="flex flex-col space-y-4">
+					@index.DropdownMenu()
+				</div>
 			</div>
-			<button hx-target="#count" hx-post="/count">Increment</button>
 		</body>
 	</html>
 }

@@ -1,0 +1,28 @@
+package index;
+
+templ Dropdown(items []string) {
+	<ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+		for _, item :=  range items {
+			<li><a>{ item }</a></li>
+		}
+	</ul>
+}
+
+templ DropdownMenu() {
+	<details class="dropdown">
+		<summary class="btn btn-primary flex basis-10" hx-post="/dropdown" hx-target="#infos">Infos</summary>
+		<div id="infos" hx-swap-oob="true"></div>
+	</details>
+	<details class="dropdown">
+		<summary class="btn btn-primary flex basis-10" hx-post="/dropdown" hx-target="#orchestration">Orchestration</summary>
+		<div id="orchestration" hx-swap-oob="true"></div>
+	</details>
+	<details class="dropdown">
+		<summary class="btn btn-primary flex basis-10" hx-post="/dropdown" hx-target="#nas">Nas</summary>
+		<div id="nas" hx-swap-oob="true"></div>
+	</details>
+	<details class="dropdown">
+		<summary class="btn btn-primary flex basis-10" hx-post="/dropdown" hx-target="#mailbox">MailBox</summary>
+		<div id="mailbox" hx-swap-oob="true"></div>
+	</details>
+}
