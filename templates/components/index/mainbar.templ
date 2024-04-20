@@ -1,0 +1,27 @@
+package index;
+
+templ MainBar(title string) {
+	<div class="flex justify-between items-center">
+		<h1 class="text-2xl">{ title }</h1>
+		<div class="flex space-x-4">
+			<div class="dropdown dropdown-end">
+				<div class="avatar">
+					<div tabindex="0" role="button" class="btn btn-circle m-1">
+						<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"/>
+					</div>
+				</div>
+				<ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+					<li><a>Login</a></li>
+					<li><a>Item 2</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+}
+
+templ Avatar() {
+	<ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+		<li><a>Item 1</a></li>
+		<li><a>Item 2</a></li>
+	</ul>
+}

@@ -1,25 +1,21 @@
 package main
 
 import (
+	"website/cmd/routes"
+
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"website/cmd/routes"
-	
 )
-
-type Count struct {
-	Count int
-}
 
 func main() {
 	e := echo.New()
-	e.Use(middleware.Logger())
+	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+		Format: "method=${method}, uri=${uri}, status=${status}, error=${error}\n",
+	}))
 	e.Static("/css", "css")
+	e.Static("/public", "public")
 	e.Static("/static", "static")
-	e.Static("/fonts", "fonts")
 	routes.IndexRoutes(e)
-	
+
 	e.Logger.Fatal(e.Start(":3000"))
 }
-
-

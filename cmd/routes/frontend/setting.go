@@ -2,15 +2,13 @@ package frontend
 
 import (
 	"website/cmd/utils"
-	"website/templates"
+	"website/templates/pages"
 
 	"github.com/labstack/echo/v4"
 )
 
 
-
-func IndexPage(c echo.Context) error {
-	component := templates.Index()
+func Setting(c echo.Context) error {
+	component := pages.Setting()
 	return utils.Render(c, 200, component)
 }
-
