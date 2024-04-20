@@ -1,7 +1,6 @@
 tmp/
 node_modules/*
-templates/*_templ.go
-templates/components/*_templ.go
+**/*_templ.go
 static/*
 css/output.css
 bun.lockb
