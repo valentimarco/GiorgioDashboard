@@ -6,7 +6,8 @@
     "@tailwindcss/typography": "^0.5.10"
   },
   "dependencies": {
-    "htmx.org": "^1.9.10"
+    "htmx.org": "^1.9.10",
+    "tailwind-htmx": "^0.1.2"
   },
   "scripts": {
     "build": "tailwindcss build -o ./css/output.css -i ./css/input.css",

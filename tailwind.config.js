@@ -7,7 +7,12 @@ module.exports = {
     extend: {},
     fontFamily: {},
   },
-  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+    require("tailwind-htmx")
+  ],
   daisyui: {
     themes: ["sunset"]
   },
