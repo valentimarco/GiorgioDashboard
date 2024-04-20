@@ -16,13 +16,11 @@ css-watch:
 install-htmx:
 	bun i htmx
 	mkdir -p static
-	cd static
-	ln -s ../node_modules/htmx.org/dist htmxlib
+	ln -s ../node_modules/htmx.org/dist ./static/htmxlib
 
-## ln chart.js
-.PHONY: install-chartjs
-install-chartjs:
-	bun i htmx
+## ln jquery
+.PHONY: install-jquery
+install-jquery:
+	bun i jquery
 	mkdir -p static
-	cd static
-	ln -s ../node_modules/chartjs chartjs
+	ln -s ../node_modules/jquery/dist ./static/jquery

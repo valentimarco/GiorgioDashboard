@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "htmx.org": "^1.9.10",
+    "jquery": "^3.7.1",
     "tailwind-htmx": "^0.1.2"
   },
   "scripts": {
