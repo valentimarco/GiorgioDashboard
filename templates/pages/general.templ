@@ -1,0 +1,20 @@
+package pages;
+
+templ General() {
+	<div class="grid grid-cols-3 gap-6 bg-inherit">
+		<div class="p-6 rounded-lg shadow-lg shadow-orange-500">
+			<h2 class="text-xl font-semibold">Users</h2>
+			<p class="text-3xl font-bold">1,200</p>
+		</div>
+		<div class="p-6 rounded-lg shadow-lg">
+			<h2 class="text-xl font-semibold">Orders</h2>
+			<p class="text-3xl font-bold">2,500</p>
+		</div>
+		<div class="p-6 rounded-lg shadow-lg">
+			<h2 class="text-xl font-semibold">Revenue</h2>
+			<p class="text-3xl font-bold">$1,200</p>
+		</div>
+		<!-- Add graph card here -->
+		<div class="p-6 rounded-lg shadow-lg" hx-get="/chart" hx-trigger="load"></div>
+	</div>
+}

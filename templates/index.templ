@@ -27,8 +27,8 @@ templ Index() {
 					<details class="dropdown">
 						<summary class="btn btn-primary flex basis-10">Infos</summary>
 						<ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-							<li><a onclick="updateTitle(this)">General</a></li>
-							<li><a onclick="updateTitle(this)">Settings</a></li>
+							<li><a onclick="updateTitle(this)" hx-get="/general" hx-target="#mainRettangle">General</a></li>
+							<li><a onclick="updateTitle(this)" hx-get="/setting" hx-target="#mainRettangle">Settings</a></li>
 						</ul>
 					</details>
 					<details class="dropdown">
@@ -69,24 +69,7 @@ templ Index() {
 			</div>
 			<div class="divider"></div>
 			<!-- main rettangle-->
-			<div id="mainRettangle" class="ml-64 p-6">
-				<div class="grid grid-cols-3 gap-6 bg-inherit">
-					<div class="p-6 rounded-lg shadow-lg shadow-orange-500">
-						<h2 class="text-xl font-semibold">Users</h2>
-						<p class="text-3xl font-bold">1,200</p>
-					</div>
-					<div class="p-6 rounded-lg shadow-lg">
-						<h2 class="text-xl font-semibold">Orders</h2>
-						<p class="text-3xl font-bold">2,500</p>
-					</div>
-					<div class="p-6 rounded-lg shadow-lg">
-						<h2 class="text-xl font-semibold">Revenue</h2>
-						<p class="text-3xl font-bold">$1,200</p>
-					</div>
-					<!-- Add graph card here -->
-					<div class="p-6 rounded-lg shadow-lg" hx-get="/chart" hx-trigger="load"></div>
-				</div>
-			</div>
+			<div id="mainRettangle" class="ml-64 p-6"></div>
 		</body>
 	</html>
 }
