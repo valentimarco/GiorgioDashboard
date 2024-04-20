@@ -1,4 +1,4 @@
-# Website
+# GiorgioDashboard
 
 Website wrote in go and htmx to do several things:
 
