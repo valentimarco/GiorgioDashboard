@@ -16,6 +16,7 @@ func main() {
 	e.Static("/public", "public")
 	e.Static("/static", "static")
 	routes.IndexRoutes(e)
+	routes.BackendRoutes(e)
 
 	e.Logger.Fatal(e.Start(":3000"))
 }

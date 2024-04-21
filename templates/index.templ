@@ -12,14 +12,10 @@ templ Index() {
 			<script src="/static/htmxlib/htmx.min.js" type="text/javascript"></script>
 			<script src="/static/htmxlib/ext/multi-swap.js" type="text/javascript"></script>
 			<script src="/static/jquery/jquery.min.js" type="text/javascript"></script>
+			<script src="/public/scripts/utils.js" type="text/javascript"></script>
 			<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		</head>
 		<body>
-			<script>
-				function updateTitle(element) {
-					$('#titlemainbar').text($(element).text());
-				}
-			</script>
 			<!-- left menu -->
 			<div class="w-64 fixed min-h-screen bg-gray-800 text-white p-6">
 				<h1 class="text-2xl mb-6">Giorgio Dashboard</h1>
@@ -60,8 +56,17 @@ templ Index() {
 								</div>
 							</div>
 							<ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-								<li><a>Login</a></li>
-								<li><a>Item 2</a></li>
+								<button
+									hx-get="/login"
+									hx-target="#htmx_modal"
+									hx-trigger="click"
+									hx-on:click="login.showModal()"
+								>
+									Login
+								</button>
+								<dialog id="login" class="modal">
+									<div class="modal-box" id="htmx_modal"></div>
+								</dialog>
 							</ul>
 						</div>
 					</div>
@@ -69,7 +74,7 @@ templ Index() {
 			</div>
 			<div class="divider"></div>
 			<!-- main rettangle-->
-			<div id="mainRettangle" class="ml-64 p-6"></div>
+			<div id="app" class="ml-64 p-6"></div>
 		</body>
 	</html>
 }

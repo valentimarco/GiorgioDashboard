@@ -6,7 +6,7 @@ import (
 	"website/cmd/routes/frontend/components"
 	"website/cmd/utils"
 	"website/templates/components/charts"
-
+	"website/cmd/routes/backend/login"
 	"github.com/labstack/echo/v4"
 )
 
@@ -16,10 +16,16 @@ func IndexRoutes(e *echo.Echo) {
 	e.POST("/avatar", components.Avatar)
 	e.GET("/setting", frontend.Setting)
 	e.GET("/general", frontend.General)
+	e.GET("/login", frontend.Login)
 	e.GET("/chart", func(c echo.Context) error {
 		// Generate the data for the chart
 		data := charts.Chart(models.Votes{Red: 1, Blue: 2, Yellow: 3, Green: 4, Purple: 5, Orange: 6})
 		// Render the chart
 		return utils.Render(c, 200, data)
 	})
+}
+
+func BackendRoutes(e *echo.Echo) {
+	g := e.Group("/api")
+	g.POST("/login", login.Login)
 }
