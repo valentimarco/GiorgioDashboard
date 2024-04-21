@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  giorgio-dashborad:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app

@@ -5,6 +5,7 @@ Website wrote in go and htmx to do several things:
 1. Administration of the server
 2. Docker container managment
 3. RCON access (For all game-server that support)
+
 # Design
 
 ![wa](./docs/website.drawio.png)
@@ -16,7 +17,7 @@ Website wrote in go and htmx to do several things:
   - [ ] HTTPS (maybe??)
   - [ ] Mongodb connection
   - [ ] JWT Auth
-  - [ ] Login,Registration and logout endpoints
+  - [ ] Login,Registration (maybe??) and logout endpoints
   - [ ] Docker connection and orchestration
   - [ ] RCON connection
 

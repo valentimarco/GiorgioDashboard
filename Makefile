@@ -1,3 +1,5 @@
+export UID=$(id -u)
+export GID=$(id -g)
 ## css: install tailwindcss
 .PHONY: css
 install-css:
@@ -24,3 +26,8 @@ install-jquery:
 	bun i jquery
 	mkdir -p static
 	ln -s ../node_modules/jquery/dist ./static/jquery
+
+## docker compose build
+.PHONY: docker-build
+docker-build:
+	docker-compose build
