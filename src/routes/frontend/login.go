@@ -1,7 +1,7 @@
 package frontend
 
 import (
-	"website/cmd/utils"
+	"website/src/utils"
 	"website/templates/pages"
 
 	"github.com/labstack/echo/v4"

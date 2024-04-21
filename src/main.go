@@ -1,7 +1,7 @@
 package main
 
 import (
-	"website/cmd/routes"
+	"website/src/routes"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
