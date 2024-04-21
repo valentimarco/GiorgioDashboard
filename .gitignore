@@ -5,3 +5,5 @@ static/*
 css/output.css
 bun.lockb
 .gitconfig
+.env
+.vscode
