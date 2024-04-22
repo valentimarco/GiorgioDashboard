@@ -52,11 +52,12 @@ templ Index() {
 						<div class="dropdown dropdown-end">
 							<div class="avatar">
 								<div tabindex="0" role="button" class="btn btn-circle m-1">
-									<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"/>
+									<img alt="avatar" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"/>
 								</div>
 							</div>
 							<ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
 								<button
+									aria-label="Login"
 									hx-get="/login"
 									hx-target="#htmx_modal"
 									hx-trigger="click"

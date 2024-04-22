@@ -9,6 +9,7 @@ import (
 	"website/templates/components/charts"
 
 	"github.com/labstack/echo/v4"
+	"gorm.io/gorm"
 )
 
 func IndexRoutes(e *echo.Echo) {
@@ -26,7 +27,7 @@ func IndexRoutes(e *echo.Echo) {
 	})
 }
 
-func BackendRoutes(e *echo.Echo) {
+func BackendRoutes(e *echo.Echo, db *gorm.DB) {
 	g := e.Group("/api")
 	g.POST("/login", login.Login)
 }
