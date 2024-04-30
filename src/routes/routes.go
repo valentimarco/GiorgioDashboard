@@ -16,9 +16,13 @@ func IndexRoutes(e *echo.Echo) {
 	e.GET("/", frontend.IndexPage)
 	e.GET("/mainbar", components.MainBar)
 	e.POST("/avatar", components.Avatar)
-	e.GET("/setting", frontend.Setting)
+	e.GET("/settings", frontend.Settings)
 	e.GET("/general", frontend.General)
 	e.GET("/login", frontend.Login)
+	e.GET("/docker", frontend.Docker)
+	e.GET("/filesystem", frontend.Filesystem)
+	e.GET("/test", frontend.Test)
+	e.GET("/mailbox", frontend.MailBox)
 	e.GET("/chart", func(c echo.Context) error {
 		// Generate the data for the chart
 		data := charts.Chart(models.Votes{Red: 1, Blue: 2, Yellow: 3, Green: 4, Purple: 5, Orange: 6})

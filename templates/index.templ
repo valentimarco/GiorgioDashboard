@@ -21,26 +21,14 @@ templ Index() {
 			<div class="w-64 fixed min-h-screen bg-gray-800 text-white p-6">
 				<h1 class="text-2xl mb-6">Giorgio Dashboard</h1>
 				<div class="flex flex-col space-y-4">
-					<details class="dropdown">
-						<summary class="btn btn-primary flex basis-10">Infos</summary>
-						<ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-							@DropdownList("/general", "General")
-							@DropdownList("/setting", "Settings")
-						</ul>
-					</details>
-					<details class="dropdown">
-						<summary class="btn btn-primary flex basis-10">Orchestration</summary>
-						<ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-							@DropdownList("/docker", "Docker")
-						</ul>
-					</details>
-					<details class="dropdown">
-						<summary class="btn btn-primary flex basis-10">Nas</summary>
-						<ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-							@DropdownList("/filesystem", "Filesystem")
-						</ul>
-					</details>
-					<button onclick="updateTitle(this)" class="btn btn-primary flex basis-10">MailBox</button>
+					@DropdownList("Infos", map[string]string{
+						"General":  "/general",
+						"Settings": "/settings",
+					})
+					<button hx-get="/docker" hx-target="#app" onclick="updateTitle(this)" class="btn btn-primary flex basis-10">Containers</button>
+					<button hx-get="/filesystem" hx-target="#app" onclick="updateTitle(this)" class="btn btn-primary flex basis-10">FileSystem</button>
+					<button hx-get="/mailbox" hx-target="#app" onclick="updateTitle(this)" class="btn btn-primary flex basis-10">MailBox</button>
+					<button hx-get="/test" hx-target="#app" onclick="updateTitle(this)" class="btn btn-primary flex basis-10">Test</button>
 				</div>
 			</div>
 			<!-- main content -->
@@ -80,6 +68,13 @@ templ Index() {
 	</html>
 }
 
-templ DropdownList(endpoint string, name string) {
-	<li><a onclick="updateTitle(this)" hx-get={ endpoint } hx-target="#app">{ name }</a></li>
+templ DropdownList(nameTab string, tabs map[string]string) {
+	<details class="dropdown">
+		<summary class="btn btn-primary flex basis-10">{ nameTab }</summary>
+		<ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+			for name, endpoint := range tabs {
+				<li><a onclick="updateTitle(this)" hx-get={ endpoint } hx-target="#app">{ name }</a></li>
+			}
+		</ul>
+	</details>
 }
