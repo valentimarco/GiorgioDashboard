@@ -13,8 +13,6 @@ services:
       - POSTGRES_HOST=${POSTGRES_HOST}
     ports:
       - 3000:3000
-    volumes:
-      - ./:/app
   postgres:
     image: postgres:15
     environment:

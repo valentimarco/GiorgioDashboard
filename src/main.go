@@ -8,6 +8,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/labstack/gommon/log"
 
 	"database/sql"
 
@@ -20,7 +21,7 @@ import (
 func main() {
 	err := godotenv.Load()
 	if err != nil {
-		panic("Error loading .env file")
+		log.Debug("Execution on container/pod??? Check your execution!!")
 	}
 	url_db := os.Getenv("POSTGRES_HOST")
 	sqlDB, err := sql.Open("pgx", url_db)

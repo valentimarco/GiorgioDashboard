@@ -37,8 +37,8 @@ runner = "green"
 watcher = "cyan"
 
 [log]
-main_only = false
-time = false
+main_only = true
+time = true
 
 [misc]
 clean_on_exit = false
