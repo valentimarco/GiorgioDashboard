@@ -13,17 +13,17 @@ Website wrote in go and htmx to do several things:
 # TODO
 
 - Backend stuff
-  - [ ] Dockerfile and compose
+  - [x] Dockerfile and compose
   - [ ] HTTPS (maybe??)
-  - [ ] Mongodb connection
+  - [x] ~~Mongodb connection~~ Postgres connection
   - [ ] JWT Auth
   - [ ] Login,Registration (maybe??) and logout endpoints
   - [ ] Docker connection and orchestration
   - [ ] RCON connection
 
 - Frontend stuff
-  - [ ] Login and Registration page
-  - [ ] Index page
+  - [x] Login,~~Registration~~ page
+  - [x] Index page
   - [ ] General info page
   - [ ] Orchestration page
   - [ ] Nas Page
