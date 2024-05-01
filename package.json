@@ -20,7 +20,7 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "build": "tailwindcss build -o ./css/output.css -i ./css/input.css",
+    "build": "tailwindcss build -o css/output.css -i css/input.css --minify",
     "watch": "tailwindcss build -o ./css/output.css -i ./css/input.css --watch"
   },
   "type": "module"

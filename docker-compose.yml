@@ -1,18 +1,22 @@
 version: "3.8"
 services:
   giorgio-dashborad:
+    depends_on:
+      - postgres
     build:
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: ./docker/giorgio-dashborad/Dockerfile
       args:
         UID: ${UID:-1000}
         GID: ${GID:-1000}
+    environment:
+      - POSTGRES_HOST=${POSTGRES_HOST}
     ports:
       - 3000:3000
     volumes:
       - ./:/app
   postgres:
-    image: postgres:13
+    image: postgres:15
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -21,5 +25,17 @@ services:
       - 5432:5432
     volumes:
       - postgres-data:/var/lib/postgresql/data
+  keycloak:
+    depends_on:
+      - postgres
+    build:
+      context: .
+      dockerfile: ./docker/keycloak/Dockerfile
+    command: ${KEYCLOAK_COMMAND}
+    environment:
+      - KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN}
+      - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD}
+    ports:
+      - 8080:8080
 volumes:
   postgres-data:
