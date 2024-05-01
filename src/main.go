@@ -1,8 +1,8 @@
 package main
 
 import (
-	"log"
 	"os"
+	"website/src/models"
 	"website/src/routes"
 
 	"github.com/joho/godotenv"
@@ -15,10 +15,12 @@ import (
 	"gorm.io/gorm"
 )
 
+
+
 func main() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		panic("Error loading .env file")
 	}
 	url_db := os.Getenv("POSTGRES_HOST")
 	sqlDB, err := sql.Open("pgx", url_db)
@@ -31,7 +33,19 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	//migrations
+	gormDB.AutoMigrate(&models.User{})
+
 	e := echo.New()
+	e.Use(func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			cc := &models.AppContext{
+				Context: c,
+				DB: gormDB,
+			}
+			return next(cc)
+		}
+	})
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
 		Format: "method=${method}, uri=${uri}, status=${status}, error=${error}\n",
 	}))

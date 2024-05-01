@@ -1,7 +1,17 @@
 package models
 
+import "gorm.io/gorm"
+
+
+type UserDTO struct {
+	Username string `form:"username"`
+	Password string `form:"password"`
+}
 
 type User struct {
-	username string `form:"username"`
-	password string `form:"password"`
+	gorm.Model
+	Username string
+	Password string
+	AdminLevel int 
+
 }

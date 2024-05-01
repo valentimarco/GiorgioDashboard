@@ -33,5 +33,6 @@ func IndexRoutes(e *echo.Echo) {
 
 func BackendRoutes(e *echo.Echo, db *gorm.DB) {
 	g := e.Group("/api")
+	g.POST("/register", login.Register)
 	g.POST("/login", login.Login)
 }
