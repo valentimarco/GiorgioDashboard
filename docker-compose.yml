@@ -3,6 +3,7 @@ services:
   giorgio-dashborad:
     depends_on:
       - postgres
+      - keycloak
     build:
       context: .
       dockerfile: ./docker/giorgio-dashborad/Dockerfile
@@ -29,11 +30,12 @@ services:
     build:
       context: .
       dockerfile: ./docker/keycloak/Dockerfile
-    command: ${KEYCLOAK_COMMAND}
+    command: ${KEYCLOAK_COMMAND} --proxy=edge --hostname-strict-https=false
     environment:
       - KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN}
       - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD}
     ports:
       - 8080:8080
+      - 8443:8443
 volumes:
   postgres-data:
