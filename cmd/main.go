@@ -2,8 +2,8 @@ package main
 
 import (
 	"os"
-	"website/src/models"
-	"website/src/routes"
+	"website/cmd/models"
+	"website/cmd/routes"
 
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"

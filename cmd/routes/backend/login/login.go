@@ -1,8 +1,8 @@
 package login
 
 import (
-	"website/src/models"
-	"website/src/services"
+	"website/cmd/models"
+	"website/cmd/services"
 
 	"github.com/labstack/echo/v4"
 )

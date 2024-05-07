@@ -1,7 +1,7 @@
 package services
 
 import (
-	"website/src/models"
+	"website/cmd/models"
 
 	"gorm.io/gorm"
 )

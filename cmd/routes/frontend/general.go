@@ -1,13 +1,13 @@
 package frontend
 
 import (
-	"website/src/utils"
+	"website/cmd/utils"
 	"website/templates/pages"
 
 	"github.com/labstack/echo/v4"
 )
 
-func Settings(c echo.Context) error {
-	component := pages.Settings()
+func General(c echo.Context) error {
+	component := pages.General()
 	return utils.Render(c, 200, component)
 }

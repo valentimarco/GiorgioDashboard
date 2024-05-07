@@ -7,12 +7,14 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@rollup/plugin-inject": "^5.0.5",
     "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.13",
     "@types/bun": "latest",
     "@types/jquery": "^3.5.29",
-    "daisyui": "^4.6.1",
-    "tailwindcss": "^3.4.1"
+    "daisyui": "^4.11.1",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.11"
   },
   "module": "index.ts",
   "name": "website",
@@ -21,7 +23,8 @@
   },
   "scripts": {
     "build": "tailwindcss build -o css/output.css -i css/input.css --minify",
-    "watch": "tailwindcss build -o ./css/output.css -i ./css/input.css --watch"
+    "watch": "tailwindcss build -o ./css/output.css -i ./css/input.css --watch",
+    "dev": "bunx --bun vite build --watch"
   },
   "type": "module"
 }

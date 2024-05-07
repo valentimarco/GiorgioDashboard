@@ -1,11 +1,11 @@
 package routes
 
 import (
-	"website/src/models"
-	"website/src/routes/backend/login"
-	"website/src/routes/frontend"
-	"website/src/routes/frontend/components"
-	"website/src/utils"
+	"website/cmd/models"
+	"website/cmd/routes/backend/login"
+	"website/cmd/routes/frontend"
+	"website/cmd/routes/frontend/components"
+	"website/cmd/utils"
 	"website/templates/components/charts"
 
 	"github.com/labstack/echo/v4"

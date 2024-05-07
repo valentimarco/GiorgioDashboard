@@ -8,24 +8,19 @@ install-css:
 	bun i -D @tailwindcss/forms
 	bun i -D @tailwindcss/typography
 
-## css-watch: watch build tailwindcss
-.PHONY: css-watch
-css-watch:
-	bun run watch
-
-## ln htmx
+## install js modules and copy htmx and jquery
 .PHONY: install-htmx
-install-htmx:
-	bun i htmx
+install-js:
+	bun i
 	mkdir -p static
-	ln -s ../node_modules/htmx.org/dist ./static/htmxlib
+	cp -i ./node_modules/htmx.org/dist/htmx.min.js ./static/libraries/htmx.js
+	cp -i ./node_modules/jquery/dist/jquery.min.js ./static/libraries/jquery.js
 
-## ln jquery
-.PHONY: install-jquery
-install-jquery:
-	bun i jquery
-	mkdir -p static
-	ln -s ../node_modules/jquery/dist ./static/jquery
+
+## install css and js libraries
+.PHONY: install
+install: install-css install-js
+	
 
 ## docker compose build
 .PHONY: docker-build

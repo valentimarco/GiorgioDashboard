@@ -1,7 +1,7 @@
 package components
 
 import (
-	"website/src/utils"
+	"website/cmd/utils"
 	"website/templates/components/index"
 
 	"github.com/labstack/echo/v4"
