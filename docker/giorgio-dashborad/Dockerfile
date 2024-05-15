@@ -4,7 +4,9 @@ WORKDIR /usr/src/app
 
 COPY tailwind.config.ts package.json bun.lockb ./
 COPY templates ./templates
+COPY src ./src
 RUN mkdir css
+RUN mkdir -p static/scripts
 COPY css/input.css ./css
 
 RUN bun install --frozen-lockfile
@@ -20,13 +22,11 @@ COPY go.mod ./
 COPY go.sum ./
 
 COPY templates ./templates
-COPY src ./src
-COPY public ./public
+COPY cmd ./cmd
 COPY static ./static
 
 COPY --from=tailwind /usr/src/app/css/output.css ./css/output.css
-COPY --from=tailwind /usr/src/app/node_modules/htmx.org/dist ./static/htmxlib
-COPY --from=tailwind /usr/src/app/node_modules/jquery/dist ./static/jquery
+COPY --from=tailwind /usr/src/app/static/scripts/index.js ./static/scripts/index.js
 
 RUN go install github.com/a-h/templ/cmd/templ@latest
 
@@ -37,7 +37,7 @@ RUN templ generate
 ARG UID
 ARG GID
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o ./main ./src/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o ./main ./cmd/main.go
 
 RUN groupadd -g $GID appgroup && \
     useradd -u $UID -g $GID -m appuser
