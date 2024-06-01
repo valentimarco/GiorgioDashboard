@@ -23,8 +23,7 @@
   },
   "scripts": {
     "build": "tailwindcss build -o css/output.css -i css/input.css --minify",
-    "watch": "tailwindcss build -o ./css/output.css -i ./css/input.css --watch",
-    "dev": "bunx --bun vite build --watch"
+    "watch": "tailwindcss build -o ./css/output.css -i ./css/input.css --watch"
   },
   "type": "module"
 }
