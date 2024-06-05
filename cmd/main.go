@@ -16,8 +16,6 @@ import (
 	"gorm.io/gorm"
 )
 
-
-
 func main() {
 	err := godotenv.Load()
 	if err != nil {
@@ -42,7 +40,7 @@ func main() {
 		return func(c echo.Context) error {
 			cc := &models.AppContext{
 				Context: c,
-				DB: gormDB,
+				DB:      gormDB,
 			}
 			return next(cc)
 		}
@@ -53,8 +51,8 @@ func main() {
 	e.Static("/css", "css")
 	e.Static("/public", "public")
 	e.Static("/static", "static")
-	routes.IndexRoutes(e)
-	routes.BackendRoutes(e, gormDB)
+	routes.FrontendRoutes(e)
+
 
 	e.Logger.Fatal(e.Start(":3000"))
 }

@@ -2,17 +2,15 @@ package routes
 
 import (
 	"website/cmd/models"
-	"website/cmd/routes/backend/login"
 	"website/cmd/routes/frontend"
 	"website/cmd/routes/frontend/components"
 	"website/cmd/utils"
 	"website/templates/components/charts"
 
 	"github.com/labstack/echo/v4"
-	"gorm.io/gorm"
 )
 
-func IndexRoutes(e *echo.Echo) {
+func FrontendRoutes(e *echo.Echo) {
 	e.GET("/", frontend.IndexPage)
 	e.GET("/mainbar", components.MainBar)
 	e.POST("/avatar", components.Avatar)
@@ -31,8 +29,4 @@ func IndexRoutes(e *echo.Echo) {
 	})
 }
 
-func BackendRoutes(e *echo.Echo, db *gorm.DB) {
-	g := e.Group("/api")
-	g.POST("/register", login.Register)
-	g.POST("/login", login.Login)
-}
+
