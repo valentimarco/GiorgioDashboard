@@ -20,7 +20,7 @@ COPY go.mod ./
 COPY go.sum ./
 
 COPY templates ./templates
-COPY src ./src
+COPY cmd ./cmd
 COPY public ./public
 COPY static ./static
 
@@ -37,7 +37,7 @@ RUN templ generate
 ARG UID
 ARG GID
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o ./main ./src/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o ./main ./cmd/main.go
 
 RUN groupadd -g $GID appgroup && \
     useradd -u $UID -g $GID -m appuser
